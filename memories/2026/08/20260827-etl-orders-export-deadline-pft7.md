@@ -17,4 +17,6 @@ source:
 ---
 The `orders_export` job in etl-jobs runs at 01:00 and must finish before 06:00 (Shanghai time); finance pulls the file at 06:30.
 
+**Why:** the daily revenue report is built from it; a late file delays that report for everyone.
+
 **How to apply:** do not add heavy steps to `orders_export`; anything slow goes in a separate job after 06:30.
