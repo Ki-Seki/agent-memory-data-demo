@@ -18,4 +18,6 @@ source:
 ---
 shop-web staging deploys automatically from the `release` branch. Production deploys only from tags like `v2.14.0`, cut from `release` after QA signs off.
 
+**Why:** QA signs off on what runs in staging, and a tag pins exactly the build they approved.
+
 **How to apply:** never tag from `main`; open the release PR into `release` first.
