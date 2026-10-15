@@ -18,16 +18,16 @@ write them: frontmatter with `type`, `scope`, a one-line `description` and prove
 ## Try it
 
 ```bash
-git clone https://github.com/Ki-Seki/agent-memory
 git clone https://github.com/Ki-Seki/agent-memory-data-demo
-cd agent-memory
-AGENT_MEMORY_DATA=../agent-memory-data-demo bin/mem ui        # needs numpy
-AGENT_MEMORY_DATA=../agent-memory-data-demo bin/mem list --all
-AGENT_MEMORY_DATA=../agent-memory-data-demo bin/mem search deploy --all
+export AGENT_MEMORY_DATA=$PWD/agent-memory-data-demo
+uvx --from "agent-memory-git[ui]" mem ui --keywords-only
+uvx --from agent-memory-git mem list --all
+uvx --from agent-memory-git mem search deploy --all
 ```
 
-`AGENT_MEMORY_DATA` points the commands at this repository instead of your configured one, so
-nothing is installed and your own memories are not touched. Edits made in `mem ui` are committed
-to your clone of this repository.
+`uvx` runs [agent-memory](https://github.com/Ki-Seki/agent-memory) from PyPI in a throwaway
+environment, and `AGENT_MEMORY_DATA` points it at this repository instead of your configured one,
+so nothing is installed and your own memories are not touched. Edits made in `mem ui` are
+committed to your clone of this repository.
 
 Everything here is invented; the people, hosts, URLs and repositories do not exist.
